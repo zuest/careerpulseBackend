@@ -1,0 +1,62 @@
+
+<button class="btn btn-dark" routerLink="" >close</button>
+
+<form>
+  <div class="form-group">
+    <h3 style="color: darkgoldenrod" for="artTitleEn">Article title in English</h3>
+    <input name="ngModel"  required minlength="4" class="form-control" id="artTitleEn" aria-describedby="emailHelp" placeholder="Enter Title for the article here">
+  </div>
+
+  <div class="form-group">
+    <h3 style="color: darkgoldenrod" for="artTitleAr">العنوان باللغة العربية</h3>
+    <input  name="ArTitle" class="form-control" id="artTitleAr" aria-describedby="emailHelp" placeholder="ادخل العنوان هنا">
+  </div>
+
+
+
+  <br>
+
+  <div style="border-style: solid; padding: 10px">
+    <select >
+      <option value="">Select an event</option>
+      <option value="1">Career Day</option>
+      <option value="2">Full-time job opportunity</option>
+      <option value="3">Part-time job opportunity</option>
+      <option value="4">Internship</option>
+      <option value="5">Volunteering</option>
+      <option value="6">Career Fair</option>
+      <option value="7">New Company established</option>
+      <option value="8">Skills Development program</option>
+    </select>
+  </div>
+
+  <h4>OR</h4>
+
+  <div style="border-style: solid;">
+    <div class="form-group">
+      <h3 style="color: darkgoldenrod" for="EnUrl">Custom english image URL</h3>
+      <input name="ngModel"  required minlength="4" class="form-control" id="EnUrl" aria-describedby="emailHelp" placeholder="Enter custom URL">
+    </div>
+
+    <div class="form-group">
+      <h3 style="color: darkgoldenrod" for="ArabUrl">رابط الصورة العربية</h3>
+      <input  name="ArTitle" class="form-control" id="ArabUrl" aria-describedby="emailHelp" placeholder="ادخل الرابط هنا">
+    </div>
+
+  </div>
+
+  <br>
+  <app-datepicker-popup ></app-datepicker-popup>
+
+  <p >ARABIC 470 CHARCTERS & ENGLISH 340 CHARCTERS PLEASE REFER </p>
+
+  <h3 style="color: darkgoldenrod">Article content in English</h3>
+  <app-ngx-editor  [placeholder]="'Enter text here...'" height="200px" minHeight="100px" [spellcheck]="true"  name="englishV"></app-ngx-editor>
+  <br>
+
+  <h3 style="color: darkgoldenrod">المحتوى العربي</h3>
+  <app-ngx-editor [placeholder]="'اكتب هنا'" height="100px" minHeight="50px" [spellcheck]="true"  name="arabicV"></app-ngx-editor>
+
+  <button type="submit" class="btn btn-primary">submit</button>
+</form>
+

@@ -1,5 +1,52 @@
-<div class="container">
-  <h1 class="title">
-    {{ 'PAGES.HOME.TITLE' | translate }}
-  </h1>
-</div>
+
+<button class="btn btn-dark" routerLink="" >Back</button>
+
+  <form (submit)="onSubmit()">
+    <div class="form-group">
+      <h3 style="color: darkgoldenrod" for="artTitleEn">Article title in English</h3>
+      <input [(ngModel)]="EnglishTitle" name="ngModel"  required minlength="4" class="form-control" id="artTitleEn" aria-describedby="emailHelp" placeholder="Enter Title for the article here">
+    </div>
+
+    <div class="form-group">
+      <h3 style="color: darkgoldenrod" for="artTitleAr">العنوان باللغة العربية</h3>
+      <input [(ngModel)]="ArabicTitle" name="ArTitle" class="form-control" id="artTitleAr" aria-describedby="emailHelp" placeholder="ادخل العنوان هنا">
+    </div>
+
+    <br>
+    <div>
+      <select (change)="selectChangeHandler($event)">
+        <option value="">Select an event</option>
+        <option value="1">Career Day</option>
+        <option value="2">Full-time job opportunity</option>
+        <option value="3">Part-time job opportunity</option>
+        <option value="4">Internship</option>
+        <option value="5">Volunteering</option>
+        <option value="6">Career Fair</option>
+        <option value="7">New Company established</option>
+        <option value="8">Skills Development program</option>
+      </select>
+    </div>
+    <br>
+
+<app-datepicker-popup (onDatePicked)="getStartDate($event)"></app-datepicker-popup>
+
+
+    <mat-radio-group class="example-radio-group" [(ngModel)]="favoriteSeason" name="radio-group">
+      <mat-radio-button class="example-radio-button" *ngFor="let season of seasons" [value]="season">
+        {{season}}
+      </mat-radio-button>
+    </mat-radio-group>
+
+
+    <app-datepicker-popup *ngIf="favoriteSeason == 'closed startDate'" (onDatePicked)="getCloseDate($event)"></app-datepicker-popup>
+
+    <p >ARABIC 470 CHARCTERS & ENGLISH 340 CHARCTERS</p>
+    <h3 style="color: darkgoldenrod">Article content in English</h3>
+    <app-ngx-editor  [placeholder]="'Enter text here...'" height="200px" minHeight="100px" [spellcheck]="true" [(ngModel)]="EnglishText" name="englishV"></app-ngx-editor>
+    <br>
+
+      <h3 style="color: darkgoldenrod">المحتوى العربي</h3>
+    <app-ngx-editor [placeholder]="'اكتب هنا'" height="100px" minHeight="50px" [spellcheck]="true" [(ngModel)]="ArabicText" name="arabicV"></app-ngx-editor>
+    <button type="submit" class="btn btn-primary">submit</button>
+  </form>
+
